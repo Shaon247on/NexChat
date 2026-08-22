@@ -12,8 +12,8 @@ messages that appear the moment they're sent.
 
 | | URL |
 |---|---|
-| Landing page | _add deployed URL_ |
-| Chat app | _add deployed URL_ `/login` |
+| Landing page | https://nex-chat-inky.vercel.app |
+| Chat app |https://nex-chat-inky.vercel.app/login |
 
 ## What's in here
 
