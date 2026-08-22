@@ -166,7 +166,7 @@ export default function ProcessSection() {
         ))}
       </div>
       <TitleSection
-      title="how we work"
+      title="how it works"
       scrollYProgress={scrollYProgress}
       className="text-6xl md:text-8xl lg:text-9xl xl:text-[12rem]"
       topClassName="top-0"
@@ -174,7 +174,7 @@ export default function ProcessSection() {
 
       <div>
         <ScrollAnimatedText
-          title="A structured process built for real-world impact"
+          title="Real-time conversations built for seamless connection"
           className="max-w-5xl"
         />
       </div>
@@ -219,7 +219,7 @@ export default function ProcessSection() {
           </div>
 
           <ScrollAnimatedText
-            title="“We combine strategy, design, and technology into a clear, repeatable process - built to reduce risk and maximize results.”"
+            title="“NexChat combines real-time messaging, seamless communication, and a focused user experience into one powerful platform.”"
             className="text-4xl tracking-normal font-normal max-w-xl"
           />
         </div>

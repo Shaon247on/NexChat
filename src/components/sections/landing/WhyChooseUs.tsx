@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Plus, Maximize2, Scroll } from "lucide-react";
+import { Plus, Maximize2 } from "lucide-react";
 import Parallax from "../../shared/parallax";
 import { ScrollAnimatedText } from "@/components/shared/ScrollAnimatedText";
+import { SITE_NAME } from "@/lib/constants";
 
 const WhyChooseUs = () => {
   const containerVariants = {
@@ -35,7 +36,7 @@ const WhyChooseUs = () => {
     <section className="mt-2 bg-gray-200 max-w-400 mx-auto rounded-2xl">
       <div className="px-4 sm:px-6 lg:px-16 xl:px-50 py-4 md:py-12 lg:py-16 xl:py-26">
         <ScrollAnimatedText
-          title="Delivering measurable results through a strong balance of design excellence and functional performance."
+          title="Built the way a messaging app should be, down to the states nobody demos."
           className="text-[3.50rem]"
         />
         <motion.div
@@ -62,13 +63,13 @@ const WhyChooseUs = () => {
               <div className="relative w-full h-full">
                 <Image
                   src="/the_logo.png"
-                  alt="Nexchat brand lifestyle"
+                  alt={`${SITE_NAME} logo`}
                   fill
                   className="object-contain"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
                   <span className="text-sm font-medium text-gray-900">
-                    Nexchat
+                    {SITE_NAME}
                   </span>
                 </div>
               </div>
@@ -99,16 +100,20 @@ const WhyChooseUs = () => {
             {/* Header Text */}
             <div className="space-y-4 mb-12">
               <ScrollAnimatedText
-                title="Nexchat goes beyond aesthetics—bringing clarity through motion,
-                flexible structure, and practical tools that help you move faster
-                without defining your identity."
+                title="Most chat demos show the happy path. This one handles the rest: a send that
+                fails tells you and keeps your text, a thread you scrolled up in stays
+                put, and a sleeping server explains itself instead of spinning."
                 className="text-base tracking-normal"
               />
             </div>
 
             {/* Stats and Feature Cards Grid - 2x2 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 -mt-20">
-              {/* Card 1: 18M Stat - Top Left */}
+              {/*
+                Every figure here is a real property of the build rather than an
+                invented growth metric. "0 passwords" is the auth model, "300ms" is the
+                search debounce, "3" is the group minimum the API enforces.
+              */}
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
@@ -116,16 +121,18 @@ const WhyChooseUs = () => {
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-2xl md:text-4xl font-bold text-gray-900">
-                    18M
+                    Zero
                   </h3>
                   <Plus
-                    className="w-7 h-7 text-gray-900 shrink-0"
+                    className="w-7 h-7 text-blue-600 shrink-0"
                     strokeWidth={2.5}
                   />
                 </div>
+                <p className="text-gray-600 text-sm mt-4">
+                  Passwords to create, remember, or reset.
+                </p>
               </motion.div>
 
-              {/* Card 2: Trusted Partners - Top Right */}
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
@@ -133,21 +140,20 @@ const WhyChooseUs = () => {
               >
                 <div className="flex justify-end mb-auto">
                   <p className="text-gray-900 text-base md:text-lg font-normal text-right">
-                    Trusted
+                    Live
                     <br />
-                    Partners
+                    by default
                   </p>
                 </div>
               </motion.div>
 
-              {/* Card 3: Business Solution - Bottom Left */}
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
                 className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 flex flex-col min-h-[200px]"
               >
                 <div className="mb-6">
-                  <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                     <div className="w-5 h-5 grid grid-cols-2 gap-0.5">
                       <div className="bg-white rounded-sm"></div>
                       <div className="bg-white rounded-sm"></div>
@@ -157,8 +163,8 @@ const WhyChooseUs = () => {
                   </div>
                 </div>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed mt-auto">
-                  We always provide people a complete solution upon focused of
-                  any business
+                  Direct chats and groups share one panel, one composer, and one set of
+                  delivery states — nothing to relearn between them.
                 </p>
               </motion.div>
 
@@ -169,31 +175,32 @@ const WhyChooseUs = () => {
                 className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 flex flex-col min-h-[200px]"
               >
                 <div className="flex flex-col h-full">
-                  {/* Maximize Icon and Text */}
                   <div className="flex-1 mb-6">
                     <div className="mb-4">
                       <Maximize2
-                        className="w-9 h-9 text-gray-900"
+                        className="w-9 h-9 text-blue-600"
                         strokeWidth={2}
                       />
                     </div>
                     <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                      Because sometimes the best design is the one you don't
-                      have to think about.
+                      The best interface for a conversation is the one you stop
+                      noticing after the first message.
                     </p>
                   </div>
 
-                  {/* 16K Stat at bottom */}
                   <div className="mt-auto pt-6 border-t border-gray-100">
                     <div className="flex items-center justify-between">
                       <h3 className="text-4xl md:text-5xl font-bold text-gray-900">
-                        16K
+                        3
                       </h3>
                       <Plus
-                        className="w-6 h-6 text-gray-900 shrink-0"
+                        className="w-6 h-6 text-blue-600 shrink-0"
                         strokeWidth={2.5}
                       />
                     </div>
+                    <p className="text-gray-600 text-sm mt-2">
+                      Members minimum for a group.
+                    </p>
                   </div>
                 </div>
               </motion.div>

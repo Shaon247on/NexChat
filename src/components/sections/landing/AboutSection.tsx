@@ -252,16 +252,16 @@ export default function AboutSection() {
             <div className="space-y-0 flex-1 mt-10 xl:mt-20 mb-16 border-t border-neutral-200">
               {[
                 {
-                  label: "Strategy first",
-                  desc: "Every decision begins with understanding.",
+                  label: "Connect instantly",
+                  desc: "Start conversations without the friction.",
                 },
                 {
-                  label: "Craft obsessed",
-                  desc: "Details are the design, not decoration.",
+                  label: "Conversations first",
+                  desc: "Everything is designed to keep people connected.",
                 },
                 {
-                  label: "Built to last",
-                  desc: "We build for the next decade, not the next trend.",
+                  label: "Built for connection",
+                  desc: "Reliable communication that keeps up with your world.",
                 },
               ].map((item, i) => (
                 <motion.div
@@ -303,72 +303,20 @@ export default function AboutSection() {
               }}
             >
               <Link href={"/login"}>
-              <Button
-                size={"lg"}
-                className="h-auto gap-2.5 px-7 py-3.5 font-body text-sm font-semibold"
-              >
-                Meet the team
-                <span className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors duration-300">
-                  <ArrowUpRight className="w-4 h-4" />
-                </span>
-              </Button>
+                <Button
+                  size={"lg"}
+                  className="h-auto gap-2.5 px-7 py-3.5 font-body text-sm font-semibold"
+                >
+                  Start Messaging
+                  <span className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors duration-300">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
+                </Button>
               </Link>
             </motion.div>
           </div>
         </div>
-
-        {/* ══════════════════════════════════════
-            ROW 3 — Stats bar
-        ══════════════════════════════════════ */}
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative bg-neutral-950 px-8 md:px-12 py-10 md:py-12 overflow-hidden"
-      >
-        {/* Subtle orange glow */}
-        <div className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 rounded-full bg-orange-600/10 blur-3xl" />
-
-        <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-          {[
-            { value: 38, suffix: "+", label: "Projects delivered" },
-            { value: 12, suffix: "", label: "Years of craft" },
-            { value: 94, suffix: "%", label: "Client retention" },
-            { value: 6, suffix: "", label: "Industry awards" },
-          ].map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.7,
-                delay: i * 0.08,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="flex flex-col items-center gap-1.5"
-            >
-              <div className="text-3xl md:text-4xl font-black tracking-tight text-white">
-                <CountUp
-                  from={0}
-                  to={s.value}
-                  separator=","
-                  direction="up"
-                  duration={1.4}
-                  className="inline"
-                />
-                <span>{s.suffix}</span>
-              </div>
-
-              <span className="text-xs text-neutral-500 tracking-widest uppercase">
-                {s.label}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }

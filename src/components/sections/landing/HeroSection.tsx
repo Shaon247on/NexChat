@@ -269,7 +269,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, x: -16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="absolute bottom-0 left-0 top-0 z-10 flex w-13 flex-col items-center justify-between py-8"
+        className="hiddel md:absolute bottom-0 left-0 top-0 z-10 flex w-13 flex-col items-center justify-between py-8"
         style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}
         aria-hidden="true"
       >
@@ -304,7 +304,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-6 flex flex-col pl-13 lg:pr-13">
         <div className="h-20 shrink-0" />
 
-        <div className="flex flex-1 items-center px-6 pb-16 lg:px-12 mt-60">
+        <div className="flex flex-1 items-center px-6 pb-16 lg:px-12 mt-30 md:mt-60">
           <div className="mx-auto text-center">
             <motion.div
               variants={containerVariants}

@@ -20,27 +20,39 @@ const IMAGE_URL =
 const faqs = [
   {
     id: 1,
-    question: "How does your design process work?",
+    question: "Do I need to create an account?",
     answer:
-      "Our process includes discovery, strategy, design, feedback, and delivery — ensuring clarity, collaboration, and results at every stage.",
+      "No. Enter your phone number and a name — if the number hasn't been used before, the account is created for you. There's no password to set and nothing to verify.",
   },
   {
     id: 2,
-    question: "How long does a typical project take?",
+    question: "How do I find someone to talk to?",
     answer:
-      "Project timelines vary based on scope and complexity. A typical branding project takes 4–6 weeks, while full web builds range from 8–16 weeks.",
+      "Search by name. Pick a result and the conversation opens — if you've already talked, you land back in the existing thread with its history rather than starting a duplicate.",
   },
   {
     id: 3,
-    question: "Do you work with startups or only established brands?",
+    question: "How do group chats work?",
     answer:
-      "We work with both. Whether you're a seed-stage startup or a scaling enterprise, we tailor our approach to where you are and where you're going.",
+      "Pick two or more people and give the group a name — three members is the minimum. Whoever creates it starts as an admin, and admins can rename it, add or remove members, and promote others. Any member can leave at any time.",
   },
   {
     id: 4,
-    question: "Can you handle custom or complex requests?",
+    question: "Do messages arrive without refreshing?",
     answer:
-      "Absolutely. Complex, bespoke projects are where we thrive. Reach out and we'll scope it together.",
+      "Yes. New messages appear on their own, and the thread follows the latest one while you're at the bottom. If you've scrolled up to read, it leaves you alone and shows a badge instead.",
+  },
+  {
+    id: 5,
+    question: "What happens if a message doesn't send?",
+    answer:
+      "It's marked as not delivered, your text stays exactly where it was, and you get Retry and Discard. A message is only ever shown as sent once the server has actually confirmed it.",
+  },
+  {
+    id: 6,
+    question: "Why is the first load sometimes slow?",
+    answer:
+      "The demo API is hosted on a free tier that sleeps when idle, so the first request after a quiet spell can take up to 30 seconds to wake it. The app tells you that's what's happening rather than leaving you with a spinner.",
   },
 ];
 
@@ -126,19 +138,19 @@ export default function FAQ() {
                   fontSize: "1.05rem",
                 }}
               >
-                Still no luck? We can help!
+                Easier to just try it
               </p>
               <p
                 className="text-sm text-slate-400"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
-                Let us Know how we can assist
+                Your number and a name is all it takes
               </p>
 
               <div className="flex items-center gap-2 mt-3">
                 <Button variant={"default"} className=" px-8 py-6" >
                   <Link href="/login" className="flex items-center gap-1 justify-between">
-                    Contact Us
+                    Start messaging
                     <ArrowRight />
                   </Link>
                 </Button>
