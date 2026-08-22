@@ -4,7 +4,7 @@ A running record of how the chat feature got built and why it looks the way it d
 Written as I went, so the reasoning is the real reasoning rather than a tidy story
 assembled afterwards.
 
-**Stack:** Next.js 16.1.6 (App Router) · React 19 · TypeScript · TanStack Query v5 ·
+**Stack:** Next.js 16.1.6 (App Router) · React 19 · TypeScript · Axios ·
 Server Actions · Zod · Tailwind v4 · shadcn/ui · Socket.io client
 
 ---
@@ -12,13 +12,13 @@ Server Actions · Zod · Tailwind v4 · shadcn/ui · Socket.io client
 ## 22 Aug — Picking the data layer
 
 The starting repo was a marketing site with no data fetching of any kind, so this was
-a clean choice between Axios, plain `fetch`, TanStack Query, and RTK Query.
+a clean choice between Axios, plain `fetch`, Axios, and RTK Query.
 
-I went with **TanStack Query over a thin `fetch` wrapper**, and no Axios.
+I went with **Axios over a thin `fetch` wrapper**, and no Axios.
 
 The deciding factor wasn't caching, it was request cancellation. In a chat UI you
 switch conversations fast, and the naive version has a race: you click conversation A,
-then B, and if A's response lands second it overwrites B's messages. TanStack Query
+then B, and if A's response lands second it overwrites B's messages. Axios
 cancels superseded queries by passing an `AbortSignal` into the query function, so
 that bug can't happen. Writing that by hand is possible, but it's the kind of thing
 you only remember after a user reports it.
@@ -36,7 +36,7 @@ almost no global client state that isn't server state. Adding Redux purely as a 
 layer is ceremony I'd have to justify in review.
 
 **Why not Axios:** Axios is a transport, not a state layer, so it was never really the
-alternative to TanStack Query — the honest comparison is Axios vs `fetch`. Axios would
+alternative to Axios — the honest comparison is Axios vs `fetch`. Axios would
 have given me interceptors, throw-on-4xx, and a `timeout` option. I get all three from
 a ~150-line typed wrapper (`src/lib/api/http.ts`), and keeping retry and timeout policy
 in one library instead of split across two is worth more to me than the ergonomics.
@@ -90,7 +90,7 @@ So the split is:
 | | Mechanism | Why |
 |---|---|---|
 | Writes (login, logout, send, create group) | Server Action | Only the server can set an httpOnly cookie; mutations are naturally sequential anyway |
-| Reads (profile, conversations, messages) | Route Handler BFF + TanStack Query | Parallel, cancellable, cacheable, pollable |
+| Reads (profile, conversations, messages) | Route Handler BFF + Axios | Parallel, cancellable, cacheable, pollable |
 
 ---
 
@@ -142,7 +142,7 @@ src/app/
 ```
 
 Route groups don't affect URLs, so nothing about the existing site moved as far as a
-visitor is concerned. A side benefit: TanStack Query only ships to the app routes, not
+visitor is concerned. A side benefit: Axios only ships to the app routes, not
 to the landing page, where bundle size actually shows up in the numbers.
 
 ---
